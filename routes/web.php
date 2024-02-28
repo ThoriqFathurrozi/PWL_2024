@@ -53,7 +53,7 @@ Route::get('/user/{name?}', function ($name = null) {
     return 'Nama Saya ' . $name;
 });
 
-Route::get('/user/{name?}', function ($name = 'John') {
+Route::get('/user/{name?}', function ($name = 'Thoriq Fathurrozi') {
     return 'Nama saya ' . $name;
 });
 
@@ -87,6 +87,13 @@ Route::resource('photos', PhotoController::class)->except([
     'create', 'store', 'update', 'destroy'
 ]);
 
+//Praktikum 6
+// Route::get('/greeting', function () {
+//     return view('hello', ['name' => 'Thoriq Fathurrozi']);
+// });
+
+//Praktikum 7
+Route::get('/greeting', [WelcomeController::class, 'greeting']);
 
 
 
