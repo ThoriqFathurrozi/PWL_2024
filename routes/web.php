@@ -1,6 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\PhotoController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,17 +21,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Praktikum 1
-Route::get('/hello', function () {
-    return 'Hello World';
-});
+
+// Route::get('/hello', function () {
+//     return 'Hello World';
+// });
 
 Route::get('/world', function () {
     return 'World';
 });
 
-Route::get('/', function () {
-    return 'Selamat Datang';
-});
+// Route::get('/', function () {
+//     return 'Selamat Datang';
+// });
 
 Route::get('/about', function () {
     return 'NIM : 2241720052 <br> Nama : Thoriq Fathurrozi';
@@ -48,6 +56,36 @@ Route::get('/user/{name?}', function ($name = null) {
 Route::get('/user/{name?}', function ($name = 'John') {
     return 'Nama saya ' . $name;
 });
+
+
+//Praktikum 4
+Route::get('/hello', [WelcomeController::class, 'hello']);
+
+
+// Route::get('/', [PageController::class, 'index']);
+
+// Route::get('/about', [PageController::class, 'about']);
+
+// Route::get('/articles/{id}', [PageController::class, 'articles']);
+
+Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/about', [AboutController::class, 'about']);
+
+Route::get('/articles/{id}', [ArticleController::class, 'articles']);
+
+
+//Praktikum 5
+
+// Route::resource('photos', PhotoController::class);
+
+Route::resource('photos', PhotoController::class)->only([
+    'index', 'show'
+]);
+
+Route::resource('photos', PhotoController::class)->except([
+    'create', 'store', 'update', 'destroy'
+]);
 
 
 
