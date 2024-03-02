@@ -79,13 +79,13 @@ Route::get('/articles/{id}', [ArticleController::class, 'articles']);
 
 // Route::resource('photos', PhotoController::class);
 
-Route::resource('photos', PhotoController::class)->only([
-    'index', 'show'
-]);
+// Route::resource('photos', PhotoController::class)->only([
+//     'index', 'show'
+// ]);
 
-Route::resource('photos', PhotoController::class)->except([
-    'create', 'store', 'update', 'destroy'
-]);
+// Route::resource('photos', PhotoController::class)->except([
+//     'create', 'store', 'update', 'destroy'
+// ]);
 
 //Praktikum 6
 // Route::get('/greeting', function () {
@@ -94,6 +94,13 @@ Route::resource('photos', PhotoController::class)->except([
 
 //Praktikum 7
 Route::get('/greeting', [WelcomeController::class, 'greeting']);
+
+
+
+
+
+
+
 
 
 
